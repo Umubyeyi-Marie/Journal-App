@@ -12,14 +12,15 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-console.log('Firebase Config:', firebaseConfig); // Debug
-
-if (!process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
-  console.error('Missing Firebase environment variables');
-  throw new Error('Firebase configuration is incomplete');
+// Debug: Check for missing values
+for (const [key, value] of Object.entries(firebaseConfig)) {
+  if (!value) {
+    console.error(`Missing Firebase config value for: ${key}`);
+  }
 }
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
