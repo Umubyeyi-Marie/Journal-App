@@ -44,7 +44,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-800 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-800 p-40">
       <h1 className="text-3xl font-bold mb-2">Sign in</h1>
       <p className="mb-6 text-center">Enter your email and password to access your journal</p>
 
@@ -78,7 +78,7 @@ export default function Login() {
 
         {error && <p className="text-red-600 mb-4">{error}</p>}
 
-        <button
+        {/* <button
           type="submit"
           disabled={isLoading}
           className={`w-full py-2 mb-2 bg-purple-700 text-white font-semibold rounded-md transition ${
@@ -86,20 +86,20 @@ export default function Login() {
           }`}
         >
           {isLoading ? 'Loading...' : 'Sign in with Email'}
-        </button>
+        </button> */}
 
         <button
           type="button"
           onClick={handleGoogleSignIn}
           disabled={isLoading}
-          className="w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition"
+          className="w-full py-2 bg-purple-600 text-white font-semibold rounded-md hover:bg-red-700 transition"
         >
           {isLoading ? 'Loading...' : 'Sign in with Google'}
         </button>
       </form>
 
       <footer>
-        <p className="b-0 p-6 text-sm text-purple-400">© 2025 Personal Journal App</p>
+        <p className="b-0 p-20  m-20 text-sm text-purple-400">© 2025 Personal Journal App</p>
       </footer>
     </div>
   );

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center items-center space-y-6 px-4">
-      <h1 className="text-4xl font-bold text-purple-800">Your Personal Journal</h1>
+    <div className="min-h-screen bg-white flex flex-col justify-center items-center space-y-6 px-4 ">
+      <h1 className="text-4xl font-bold text-purple-800 ">Your Personal Journal</h1>
       <p className="text-xl text-gray-500 text-center">
         A simple space to capture your thoughts, memories, and reflections.
       </p>
@@ -18,8 +18,12 @@ export default function Home() {
             Learn More
           </button>
         </Link>
-  
+          
     </div>
+       <footer className="text-center text-sm text-purple-400 m-20">
+        © 2025 Personal Journal App
+      </footer>
+  
     </div>
   );
 }

@@ -59,7 +59,7 @@ export default function About() {
       </main>
 
       
-      <footer className="text-center text-sm text-purple-400 b-0">
+      <footer className="text-center text-sm text-purple-400 m-6">
         © 2025 Personal Journal App
       </footer>
     </div>

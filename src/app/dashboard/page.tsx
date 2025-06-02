@@ -75,7 +75,7 @@ export default function Dashboard() {
   if (loading) return <p className="text-purple-800 text-center mt-10">Loading...</p>;
 
     return (
-    <div className="min-h-screen bg-white text-purple-800 px-4 py-6">
+    <div className="h-screen bg-white text-purple-800 px-4 py-6">
       <header className=" bg-purple-700 text-white p-4 t-0 flex justify-between items-center w-auto">
         <h1 className="text-2xl font-bold">Personal Journal</h1>
         <button
