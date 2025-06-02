@@ -4,11 +4,11 @@ import { verifyUser } from '@/lib/auth';
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     const uid = await verifyUser(req);
-    const { id } = params;
+    const { id } = context.params;
 
     const docRef = adminDb.collection('entries').doc(id);
     const doc = await docRef.get();
