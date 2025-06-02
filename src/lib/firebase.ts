@@ -1,4 +1,3 @@
-// src/lib/firebase.ts
 import { initializeApp, getApps } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
@@ -12,15 +11,14 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Debug: Check for missing values
-for (const [key, value] of Object.entries(firebaseConfig)) {
-  if (!value) {
-    console.error(`Missing Firebase config value for: ${key}`);
-  }
+if (!firebaseConfig.apiKey) {
+  console.error('Missing Firebase environment variables');
+  throw new Error('Firebase configuration is incomplete');
 }
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+const auth = getAuth(app);
+const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider(); // ✅ MAKE SURE THIS IS DECLARED
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const googleProvider = new GoogleAuthProvider();
+export { auth, db, googleProvider }; // ✅ ADD THIS LINE

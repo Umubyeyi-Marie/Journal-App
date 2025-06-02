@@ -73,9 +73,7 @@ export default function Login() {
               className="w-full px-4 py-2 border border-purple-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
           </div>
-          <a href="#" className="text-purple-800 text-sm ml-2 hover:underline self-end">
-            Forgot password?
-          </a>
+          
         </div>
 
         {error && <p className="text-red-600 mb-4">{error}</p>}
@@ -101,7 +99,7 @@ export default function Login() {
       </form>
 
       <footer>
-        <p className="mb-8 p-6 text-sm text-purple-400">© 2025 Personal Journal App</p>
+        <p className="b-0 p-6 text-sm text-purple-400">© 2025 Personal Journal App</p>
       </footer>
     </div>
   );

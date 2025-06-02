@@ -18,9 +18,7 @@ export default function Home() {
             Learn More
           </button>
         </Link>
-      <footer>
-       <p className=" mb-8 p-6 text-sm text-purple-400">© 2025 Personal Journal App</p>
-    </footer>
+  
     </div>
     </div>
   );
