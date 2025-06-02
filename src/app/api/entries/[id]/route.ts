@@ -1,17 +1,18 @@
-// src/app/api/entries/[id]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { adminDb } from '@/lib/firebaseAdmin';
 import { verifyUser } from '@/lib/auth';
 
-export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+type Context = {
+  params: {
+    id: string;
+  };
+};
+
+export async function DELETE(req: NextRequest, context: Context) {
   try {
     const uid = await verifyUser(req);
-    const { id } = params;
+    const { id } = context.params;
 
-    // Make sure entry belongs to this user before deleting (optional)
     const docRef = adminDb.collection('entries').doc(id);
     const doc = await docRef.get();
 
@@ -26,7 +27,7 @@ export async function DELETE(
     await docRef.delete();
     return NextResponse.json({ message: 'Entry deleted' }, { status: 200 });
   } catch (error: any) {
-    console.error('DELETE Error:', error);
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    console.error('DELETE error:', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
