@@ -76,7 +76,7 @@ export default function Dashboard() {
 
     return (
     <div className="h-screen bg-white text-purple-800 px-4 py-6">
-      <header className=" bg-purple-700 text-white p-4 t-0 flex justify-between items-center w-auto">
+      <header className=" bg-purple-700 text-white p-4  flex justify-between items-center ">
         <h1 className="text-2xl font-bold">Personal Journal</h1>
         <button
           onClick={handleSignOut}
