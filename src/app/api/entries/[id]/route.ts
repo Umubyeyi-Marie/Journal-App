@@ -2,16 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { adminDb } from '@/lib/firebaseAdmin';
 import { verifyUser } from '@/lib/auth';
 
-type Context = {
-  params: {
-    id: string;
-  };
-};
-
-export async function DELETE(req: NextRequest, context: Context) {
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     const uid = await verifyUser(req);
-    const { id } = context.params;
+    const { id } = params;
 
     const docRef = adminDb.collection('entries').doc(id);
     const doc = await docRef.get();
@@ -26,7 +23,7 @@ export async function DELETE(req: NextRequest, context: Context) {
 
     await docRef.delete();
     return NextResponse.json({ message: 'Entry deleted' }, { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     console.error('DELETE error:', error);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
